@@ -1,5 +1,25 @@
 var Map = function(coffeeShops){
 	this.center = new google.maps.LatLng(53.482091,-2.2341051);
+	this.mapStyles = [
+	  {
+	    "featureType": "road.highway",
+	    "stylers": [
+	      { "visibility": "simplified" },
+	      { "color": "#ffffff" }
+	    ]
+	  },{
+	    "featureType": "poi",
+	    "stylers": [
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "transit.station",
+	    "stylers": [
+	      { "visibility": "off" }
+	    ]
+	  },{
+	  }
+	]
 	this.coffeeShops = coffeeShops;
 	this.markers = [];
 	this.infoWindows = [];
@@ -7,10 +27,11 @@ var Map = function(coffeeShops){
 }
 
 Map.prototype.init = function(){
-	
+
 	this.map = new google.maps.Map(document.getElementById('js-building-map'), {
-		zoom: 16,
-		center: this.center
+		zoom: 17,
+		center: this.center,
+		styles: this.mapStyles
 	});
 
 	this.addMarkers();
