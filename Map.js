@@ -20,7 +20,8 @@ Map.prototype.addMarkers = function(){
 	for (var i = 0 ; i < this.coffeeShops.length ; i++){
 		var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(this.coffeeShops[i].location.lat,this.coffeeShops[i].location.lng),
-			title: this.coffeeShops[i].title
+			title: this.coffeeShops[i].title,
+			icon: 'coffee-bean.png'
 		})
 		this.markers.push(marker);
 		var infowindow = new google.maps.InfoWindow({
